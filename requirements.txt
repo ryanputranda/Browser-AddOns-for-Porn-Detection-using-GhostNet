@@ -1,0 +1,16 @@
+torch
+torchvision
+timm
+pytorch-lightning
+torchmetrics
+numpy
+opencv-python
+Pillow
+scikit-learn
+onnx
+onnxscript
+openvino
+openvino-dev
+fastapi
+uvicorn
+python-multipart
