@@ -1,5 +1,5 @@
 const API_THRESHOLD = 0.6;
-const TARGET_LABELS = ["porn", "hentai", "sexy"]; // bisa include sexy kalau mau
+const TARGET_LABELS = ["porn", "hentai", "sexy"];
 
 function preBlur(img) {
     img.classList.add("pre-blur");
@@ -22,7 +22,7 @@ function scanImage(img) {
 
     img.setAttribute("data-scanned", "true");
 
-    // 🔥 PREVENTIVE BLUR (langsung)
+   
     preBlur(img);
 
     chrome.runtime.sendMessage({
@@ -30,7 +30,6 @@ function scanImage(img) {
         imageUrl: img.src
     }, (response) => {
         if (!response || !response.success) {
-            // kalau API error → tetap blur (fail-safe)
             return;
         }
 
@@ -61,5 +60,6 @@ observer.observe(document.body, {
     childList: true,
     subtree: true
 });
+
 
 window.addEventListener("load", scanAllImages);
