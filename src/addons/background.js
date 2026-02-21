@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .then(res => res.blob())
             .then(blob => {
                 const fd = new FormData();
-                fd.append("file", blob, "image.jpg");  // ✅ FastAPI expects "file"
+                fd.append("file", blob, "image.jpg");
 
                 return fetch(API_URL, {
                     method: "POST",
@@ -25,4 +25,5 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         return true; // async
     }
+
 });
