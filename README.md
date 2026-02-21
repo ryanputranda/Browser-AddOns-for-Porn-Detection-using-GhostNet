@@ -70,7 +70,7 @@ https://huggingface.co/datasets/deepghs/nsfw_detect/tree/main?not-for-all-audien
 ---
 
 ### Models
-I was comparing the variant of CNN Modern and ViT model as:
+I was comparing the variant of modern CNN and ViT models as:
 | Model | Accuracy |
 |------|-----------|
 | CNN | 51% |
@@ -110,6 +110,8 @@ python -m uvicorn api:app --reload
 5. Class Detection    → porn / hentai / sexy classification
 6. blurImage()        → Apply permanent blur
 ```
+
+---
 
 ### Citation
 ```text
