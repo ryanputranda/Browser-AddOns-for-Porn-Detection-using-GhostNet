@@ -1,7 +1,9 @@
 # Browser AddOns for Porn Detection using GhostNet
-This is source code for Porn Detection addOns browser using GhostNet.  I was comparing many model as: Modern CNN and ViT varian, and found the optimal model is GhostNet 
+This is source code for Porn Detection addOns browser using GhostNet.
 
-# Deploy Model EMR to Streamlit
+---
+
+### Documentation
 ![Dashboard](documentation/addOns.jpg)
 ![Dashboard](documentation/api.jpg)
 ![Dashboard](documentation/after1.jpg)
@@ -9,53 +11,99 @@ This is source code for Porn Detection addOns browser using GhostNet.  I was com
 ![Dashboard](documentation/after3.jpg)
 ![Dashboard](documentation/after4.jpg)
 
-## 📊 Aplikasi Segmentasi Layanan Kesehatan Karyawan
+---
 
-Aplikasi ini merupakan sistem **segmentasi layanan kesehatan karyawan**
-berbasis **Electronic Medical Record (EMR)** yang dikembangkan menggunakan
-**Machine Learning (Random Forest Classifier)** dan diimplementasikan dalam
-bentuk **web application menggunakan Streamlit**.
+### Tech Stack
+#### Runtime
+- Python  
+- Jupyter Notebook  
 
-Tujuan utama aplikasi ini adalah membantu proses **analisis dan pengambilan
-keputusan layanan kesehatan** dengan mengelompokkan layanan ke dalam
-kelas **bawah, menengah, dan atas** secara otomatis.
+#### Deep Learning Framework
+- `torch`
+- `torchvision`
+- `timm`
+- `pytorch-lightning`
+- `torchmetrics`
 
-| Aspek | Penjelasan |
+#### Data Processing & Image Processing
+- `numpy`
+- `opencv-python`
+- `Pillow`
+
+#### Machine Learning Utilities
+- `scikit-learn`
+
+#### Model Format & Interoperability
+- `onnx`
+- `onnxscript`
+
+#### Inference Engine
+- `openvino`
+- `openvino-dev`
+
+#### API Layer
+- `fastapi`
+- `uvicorn`
+- `python-multipart`
+
+#### System Architecture Layer
+- AI Inference Engine (OpenVINO Runtime)
+- REST API Service (FastAPI)
+- Browser Extension Client
+- Local AI Server
+- Edge AI Deployment
+
+#### Deployment Mode
+- Local Server (Uvicorn)
+- Local Inference Engine
+- Edge Deployment (CPU Inference)
+- Browser-based Client System
+
+---
+
+### Models
+I was comparing the variant of CNN Modern and ViT model as:
+| Model | Accuracy |
 |------|-----------|
-| Nama Proyek | Aplikasi Segmentasi Layanan Kesehatan Karyawan |
-| Domain | Healthcare Analytics |
-| Data | Electronic Medical Record (EMR) |
-| Metode Machine Learning | Random Forest Classifier |
-| Optimasi Model | GridSearchCV |
-| Platform | Web Application |
-| Framework | Streamlit |
-| Bahasa Pemrograman | Python |
-| Tujuan | Melakukan segmentasi layanan kesehatan karyawan berdasarkan data EMR |
-| Output | Kategori layanan: kelas bawah, menengah, dan atas |
+| CNN | 51% |
+| EfficientNet V2 | 21% |
+| MobileNet | 75% |
+| Resnet | 57% |
+| VGG16 | 72%* |
+| **GhostNet** | **82.67%** |
+| ViT-Ti/16 (Tiny) | 37% |
+| DeiT-Tiny | 77% |
+| Hybrid MobileNet-DeiT | 72% |
 
+---
 
-| Fitur | Deskripsi |
-|------|----------|
-| Home Page | Menampilkan informasi umum dan alur kerja sistem |
-| EMR Predict | Form input data EMR untuk melakukan segmentasi layanan |
-| Machine Learning Model | Prediksi segmentasi menggunakan Random Forest |
-| Label Encoding | Transformasi data kategorikal sebelum prediksi |
-| Result Visualization | Menampilkan hasil segmentasi layanan |
-| About Page | Informasi pengembang dan repository |
+### Install dependencies
+```text
+pip install -r requirements.txt
+```
 
+---
 
-| Tahapan | Keterangan |
-|--------|------------|
-| Data Cleaning | Membersihkan data EMR dari nilai tidak valid |
-| Exploratory Data Analysis | Analisis awal karakteristik data |
-| Clustering | Pengelompokan awal data layanan |
-| Class Balancing | Menyeimbangkan distribusi kelas |
-| Hyperparameter Tuning | Optimasi model menggunakan GridSearchCV |
-| Classification | Klasifikasi layanan menggunakan Random Forest |
-| Evaluation | Evaluasi performa model |
-| Deployment | Implementasi model ke aplikasi Streamlit |
+### How to use
+```text
+Running api.py using command:
+python -m uvicorn api:app --reload
+```
 
+---
 
-## Requirement: pip install fastapi streamlit uvicorn joblib numpy scikit-learn
-### Run Streamlit: Streamlit run site.py
-### Run FastAPI: Python -m uvicorn api:app --reload
+### Flow Explanation
+
+```text
+1. scanImage()        → Browser scans all <img> elements in DOM
+2. preBlur()          → Preventive soft blur (anti-flash protection)
+3. API call           → Send image to FastAPI server
+4. Model Inference    → GhostNet (OpenVINO runtime)
+5. Class Detection    → porn / hentai / sexy classification
+6. blurImage()        → Apply permanent blur
+```
+
+### Citation
+```text
+If you use this project in your research, academic work, thesis, or publication, please cite me, you can use Bibguru, etc
+```
