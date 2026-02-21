@@ -1,5 +1,5 @@
-# Browser AddOns for Porn Detection using GhostNet
-This is source code for Porn Detection addOns browser using GhostNet.
+# Browser AddOns for Porn Detection
+This is source code for Porn Detection browser addOns using **GhostNet**.
 
 ---
 
@@ -10,6 +10,14 @@ This is source code for Porn Detection addOns browser using GhostNet.
 ![Dashboard](documentation/after2.jpg)
 ![Dashboard](documentation/after3.jpg)
 ![Dashboard](documentation/after4.jpg)
+
+---
+
+### Dataset
+```text
+You can download in:
+https://huggingface.co/datasets/deepghs/nsfw_detect/tree/main?not-for-all-audiences=true
+```
 
 ---
 
@@ -69,7 +77,7 @@ I was comparing the variant of CNN Modern and ViT model as:
 | EfficientNet V2 | 21% |
 | MobileNet | 75% |
 | Resnet | 57% |
-| VGG16 | 72%* |
+| VGG16 | 72% |
 | **GhostNet** | **82.67%** |
 | ViT-Ti/16 (Tiny) | 37% |
 | DeiT-Tiny | 77% |
